@@ -66,7 +66,7 @@ char* BMSearch(char text[], char key[])
                 index = index - 1;
                 if(key_index == 0)
                 {
-                    return text + index;
+                    return text + index +1;
                     break;
                 }
             }
