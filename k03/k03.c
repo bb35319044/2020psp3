@@ -72,7 +72,7 @@ char* BMSearch(char text[], char key[])
             }
             else
             {
-                index = index + table[(int)text[index]];
+                index = index + table[(int)text[index]]; 
                 if(index <= index2)
                 {
                     index = index2 + 1;
