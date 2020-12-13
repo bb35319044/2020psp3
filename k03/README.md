@@ -73,6 +73,8 @@
 ## 出力結果
 
 ```
+Force Search. Find keyword at:wind in my hair.
+BM Search. Find keyword at: wind in my hair.
 
 ```
 
