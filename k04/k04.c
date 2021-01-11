@@ -79,14 +79,76 @@ int LoadData(City arrayCity[])
 void BubbleSort(City arrayCity[], int size)
 {
     //  ここを実装する
+    int pos;
+    int cnt = 1;
+    City tmp;
 
+    while (cnt != 0)
+    {
+        cnt = 0;
+
+        for(pos=0; pos < size -1; pos++)
+        {
+            if(arrayCity[pos].total > arrayCity[pos+1].total)
+            {
+                tmp = arrayCity[pos];
+                arrayCity[pos] = arrayCity[pos+1];
+                arrayCity[pos+1] = tmp;
+                cnt++;
+            }
+        }
+    }
+}
+
+int Add(int num1, int num2)
+{
+    return num1 + num2;
 }
 
 
 void QuickSort(City arrayCity[], int left, int right)
 {
     //  ここを実装する
+    int i;
+    int j;
+    int pivot;
+    City a;
 
+    i = left;
+    j = right;
+    pivot = arrayCity[left].seafood;
+
+    while ((right - left) > 0)
+    {
+        for(; pivot >= arrayCity[i].seafood && i <= right; i++)
+        {
+
+        }
+        for (; pivot < arrayCity[j].seafood; j--)
+        {
+            
+        }
+        if(i >= j)
+        {
+            a = arrayCity[left];
+            arrayCity[left] = arrayCity[j];
+            arrayCity[j] = a;
+
+            QuickSort(arrayCity, left,j-1);
+            QuickSort(arrayCity, j+1, right);
+            break;
+        }
+        else
+        {
+            a = arrayCity[i];
+            arrayCity[i] = arrayCity[j];
+            arrayCity[j] = a;
+
+        }
+        
+    }
+    return;
+    
 }
 
 
@@ -108,7 +170,6 @@ void MergeSort(City arrayCity[], int left, int right)
 
 int main(void)
 {
- 
     //  事前準備。データの読み込み、配列の作成
     City* arrayCity;
     int cn;
@@ -128,8 +189,8 @@ int main(void)
     QuickSort(arrayCity, 0, MAX_CITY - 1);
     PrintArray(arrayCity, MAX_CITY);
    
-//    MergeSort(arrayCity, 0, MAX_CITY - 1);
-//    HeapSort(arrayCity, MAX_CITY);
+    //MergeSort(arrayCity, 0, MAX_CITY - 1);
+    //HeapSort(arrayCity, MAX_CITY);
     PrintArray(arrayCity, MAX_CITY);
 
 
