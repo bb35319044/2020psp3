@@ -106,7 +106,42 @@ int StackIsEmpty(void)
 void DepthFirstSearch(int size, int matrix[size][size], int start)
 {
     //  ここを実装する
+    int visited[size];
+    int i;
+    int index;
 
+    for(i = 0; i < size; i++)
+    {
+        visited[i] = 0;
+    }
+
+    StackInit();
+    StackPush(start);
+
+    while(StackIsEmpty() == FALSE)
+    {
+        index = StackPop();
+
+        if(visited[index] == 0)
+        {
+            visited[index] = 1;
+        }
+
+        for(i = 0; i < size; i++)
+        {
+            if(matrix[index][i] != 0)
+            {
+                StackPush(i);
+            }
+        }
+    }
+    for(i=0; i< size; i++)
+    {
+        if(visited[i] == 1)
+        {
+            PrintStationName(i);
+        }
+    }
 }
 
 
@@ -172,6 +207,43 @@ int QueueIsEmpty()
 void BreadthFirstSearch(int size, int matrix[size][size], int start)
 {
     //  ここを実装する
+    int visited[size];
+    int i;
+    int index;
+
+    for(i = 0; i < size; i++)
+    {
+        visited[i] = 0;
+    }
+
+    InitQueue();
+    EnQueue(start);
+
+    while(QueueIsEmpty() == FALSE)
+    {
+        index = DeQueue();
+
+        if(visited[index] == 0)
+        {
+            visited[index] = 1;
+        }
+
+        for(i = 0; i < size; i++)
+        {
+            if(matrix[index][i] != 0)
+            {
+                EnQueue(i);
+            }
+        }
+    }
+
+    for(i=0; i< size; i++)
+    {
+        if(visited[i] == 1)
+        {
+            PrintStationName(i);
+        }
+    }
 
 }
 
@@ -181,7 +253,7 @@ void BreadthFirstSearch(int size, int matrix[size][size], int start)
 int SearchGraphByDijkstra(int start, int goal, int size, int matrix[size][size])
 {
     //  ここを実装する
-
+   
 }
 
 
