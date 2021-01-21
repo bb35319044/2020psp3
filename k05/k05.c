@@ -125,15 +125,15 @@ void DepthFirstSearch(int size, int matrix[size][size], int start)
         if(visited[index] == 0)
         {
             visited[index] = 1;
-        }
 
-        for(i = 0; i < size; i++)
-        {
-            if(matrix[index][i] != 0)
-            {
-                StackPush(i);
+            for(i = 0; i < size; i++)
+            {  
+                if(matrix[index][i] != 0)
+                {
+                    StackPush(i);
+                }
             }
-        }
+        }   
     }
     for(i=0; i< size; i++)
     {
@@ -226,15 +226,16 @@ void BreadthFirstSearch(int size, int matrix[size][size], int start)
         if(visited[index] == 0)
         {
             visited[index] = 1;
-        }
-
-        for(i = 0; i < size; i++)
-        {
-            if(matrix[index][i] != 0)
+            for(i = 0; i < size; i++)
             {
-                EnQueue(i);
+                if(matrix[index][i] != 0)
+                {
+                        EnQueue(i);
+                }
             }
         }
+
+        
     }
 
     for(i=0; i< size; i++)
