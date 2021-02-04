@@ -79,33 +79,33 @@ void DynamicProgLimited(Menu arrayItem[], int items, int nap_size)
 
     for(i=0; i<=items; i++)
     {
-        for(j=0; j<=1000; j++)
+        for(j=0; j<=NAP_SIZE; j++)
         {
             nap_value[i][j] = 0;
         }
     }
     for(i=1; i<=items; i++)
     {
-        for(k=1; k<arrayItem[i].price;k++)
+        for(k=1; k<arrayItem[i-1].price;k++)
         {
             nap_value[i][k] = nap_value[i-1][k];
         }
-        for(j=arrayItem[i].price; j<=1000; j++ )
+        for(j=arrayItem[i-1].price; j<=NAP_SIZE; j++ )
         {
-            if(nap_value[i-1][j] > nap_value[i-1][j-arrayItem[i].price] + arrayItem[i].calorie)
+            if(nap_value[i-1][j] > nap_value[i-1][j-arrayItem[i-1].price] + arrayItem[i-1].calorie)
             {
                 nap_value[i][j] = nap_value[i-1][j];
             }
             else
             {
-                nap_value[i][j] =  nap_value[i-1][j-arrayItem[i].price] + arrayItem[i].calorie;
+                nap_value[i][j] =  nap_value[i-1][j-arrayItem[i-1].price] + arrayItem[i-1].calorie;
             }
             
         }
 
     }
 
-    printf("%d", nap_value[items][1000]);
+    printf("%d", nap_value[items][NAP_SIZE]);
 
 }
 
